@@ -1,0 +1,89 @@
+// MEDIA QUERY MANAGER //
+/* 
+0 - 600px:          Phone
+600 - 900px:        Tablet potrait
+900 - 1200px:       Tablet landscape
+1200px - 1800px:    Is our normal styles apply
+1800px + :          Big dekstop
+*/
+
+/* 
+$breakpoint argument choice
+- phone 
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px
+*/
+
+/*
+//*?CALCULATION
+By default px is effected in media queries root font sizes while em and rem are not.
+However rem is fail to work on some browser as intended.
+That is why we use em for media queries.
+
+1em = 16px
+400px/16px = 25em
+500px/16px = 31.25em
+900px/16px = 56.25em
+1200px/16px = 75em
+1800px/16px = 112.5em
+*/
+
+/*
+//*NEW VERSION
+Below 1344px Smaller PC
+max-width: 84em
+
+Below 1200px Landscape Tablets
+max-width: 75em
+html: font-size 56.25% //9px/16px = 0.5625 = 56.25%
+
+Below 944px Tablets
+max-width: 59em
+html: font-size 50% // 8px/16px = 0.5 = 50%
+
+Below 500px Phone
+max-width: 31.25em // 500px/16px = 31.25
+
+Below 400px Small Phone
+max-width: 34em // 400px/16px = 34.25
+*/
+
+@mixin respond($breakpoint) {
+    @if $breakpoint==small-phone5 {
+        @media only screen and (max-width: 25em) {
+            //400px
+            @content;
+        }
+    }
+
+    @if $breakpoint==phone4 {
+        @media only screen and (max-width: 31.25em) {
+            //500px
+            @content;
+        }
+    }
+
+    @if $breakpoint==tab-port3 {
+        @media only screen and (max-width: 56.25em) {
+            //900px
+            @content;
+        }
+    }
+
+    @if $breakpoint==tab-land2 {
+        @media only screen and (max-width: 75em) {
+            //1200px
+            @content;
+        }
+    }
+
+    @if $breakpoint==big-desktop1 {
+        @media only screen and (min-width: 112.5em) {
+            //1800
+            @content;
+        }
+    }
+}

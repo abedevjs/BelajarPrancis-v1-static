@@ -1,0 +1,231 @@
+.heroLeft {
+    width: 60%;
+    background-color: $colorprimary-bright;
+    padding: $paddingsection;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include respond(tab-port3) {
+        //56.25em 900px
+        width: auto;
+        background-color: inherit;
+        align-items: center;
+    }
+
+
+    &__icon {
+        display: flex;
+        justify-content: space-between;
+
+        span {
+            font-size: 2rem;
+
+            @include respond(tab-port3) {
+                //56.25em 900px
+                position: absolute;
+                top: 3%;
+                left: 5%;
+            }
+
+            @include respond(phone4) {
+                //31.25 500px
+                font-size: 1.5rem;
+            }
+        }
+
+        img {
+            width: 7rem;
+        }
+
+        div {
+
+            @include respond(tab-port3) {
+                //56.25em 900px
+                position: absolute;
+                top: 3%;
+                right: 5%;
+            }
+
+            a {
+                text-decoration: none;
+
+                &:not(:last-child) {
+                    margin-right: .5rem;
+                }
+
+                svg {
+                    height: 3rem;
+                    width: auto;
+                    color: $colorgreydark-eight;
+
+                    transition: all .1s;
+
+                    &:hover {
+                        transform: scale(0.95);
+                    }
+
+                    @include respond(phone4) {
+                        //31.25 500px
+                        height: 2rem;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    &__title,
+    &__sub {
+        width: 51rem;
+
+        @include respond(tab-port3) {
+            //56.25em 900px
+            width: 64rem;
+            margin-bottom: 2rem;
+        }
+
+        @include respond(phone4) {
+            //31.25 500px
+            width: 50rem;
+        }
+    }
+
+    &__sub {
+        font-size: $fontsize-paragraph;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    &__button {
+        align-self: end;
+        display: inline-block;
+        text-decoration: none;
+        padding: 0.1rem 0.8rem;
+        border-radius: $borderradius-thin;
+        font-size: $fontsize-button;
+
+        // border: 2px solid $colorgreydark-eight;
+        color: $colorgreylight-two;
+        background-color: $colorgreydark-eight;
+        // letter-spacing: 1.5px;
+
+        transition: background-color 0.1s;
+        cursor: pointer;
+        scroll-behavior: smooth;
+
+        // position: relative;
+        // left: 25vw;
+
+        &:hover {
+            // border: 2px solid $color-black;
+            // color: $color-white;
+            // background-color: $color-black;
+
+            transform: scale(0.95);
+        }
+
+        @include respond(tab-port3) {
+            //56.25em 900px
+            display: none;
+        }
+
+    }
+
+
+}
+
+// .icon {
+//     display: flex;
+
+//     a {
+
+//         img {
+//             height: 4rem;
+//             width: auto;
+//         }
+//     }
+// }
+
+.heroRight {
+    background-color: $coloraccent-one;
+
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include respond(tab-port3) {
+        //56.25em 900px
+        width: auto;
+        background-color: inherit;
+
+    }
+
+    picture {
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 28rem;
+            border-radius: $borderradius-thin;
+
+            @include respond(tab-port3) {
+                //56.25em 900px
+                width: 35rem;
+            }
+
+            @include respond(phone4) {
+                //31.25 500px
+                width: 25rem;
+            }
+        }
+    }
+}
+
+.heroImage {
+
+    &--1,
+    &--2 {
+        @include respond(tab-port3) {
+            //56.25em 900px
+            display: none;
+        }
+    }
+
+    &--1 {
+        transform: translateY(20px) rotate(-15deg);
+        z-index: 10;
+    }
+
+    &--2 {
+        transform: translateY(-50px) rotate(15deg);
+    }
+
+    &--3,
+    &--4 {
+        display: none;
+
+        @include respond(tab-port3) {
+            //56.25em 900px
+            display: block;
+        }
+    }
+
+    &--3 {
+        @include respond(tab-port3) {
+            //56.25em 900px
+            transform: translateY(-10px) rotate(-10deg);
+            z-index: 11;
+        }
+    }
+
+    &--4 {
+        @include respond(tab-port3) {
+            //56.25em 900px
+            transform: translateY(10px) rotate(10deg);
+        }
+    }
+}

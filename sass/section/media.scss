@@ -1,0 +1,311 @@
+.mediaLeft {
+    background-color: $coloraccent-three;
+    width: 50%;
+    padding: $paddingsection;
+    overflow: auto;
+
+    -ms-overflow-style: none; //IE and Edge
+    scrollbar-width: none; //Firefox
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @include respond(tab-port3) {
+        //56.25em 900px
+        width: auto;
+        height: 50rem;
+    }
+}
+
+.navigasi {
+    display: flex;
+    justify-content: flex-end;
+
+    label,
+    input {
+        font-size: $fontsize-paragraph;
+    }
+
+    label {
+        margin-right: 1rem;
+    }
+
+    input {
+        border: none;
+        width: 5rem;
+        padding: 5px;
+    }
+}
+
+.description {
+
+    &__container {
+        margin-bottom: 1rem;
+    }
+
+    a {
+        padding: 1.3rem;
+        align-items: center;
+        text-decoration: none;
+        border-radius: $borderradius-bold;
+        color: $colorgreydark-eight;
+
+        transition: all .1s;
+
+        display: flex;
+
+        img {
+            width: 10rem;
+            border-radius: $borderradius-thin;
+            margin-right: 6rem;
+
+            @include respond(phone4) {
+                //31.25 500px
+                width: 8rem;
+                margin-right: 3rem;
+            }
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+
+            span {
+                font-size: $fontsize-button;
+            }
+        }
+
+        &:hover {
+            // transform: translateX(1rem);
+            transform: scale(0.95);
+            background-color: #ACE8B4;
+        }
+
+        &:focus {
+            background-color: #A0D9A8;
+        }
+    }
+}
+
+.description__container--active {
+    background-color: #A0D9A8;
+    transform: scale(0.95);
+}
+
+.rotate {
+    animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+.mediaRight {
+    flex: 1;
+
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+
+    &__ebook {
+
+        // background-color: $colorprimary-medium;
+        background-color: #70F068;
+        grid-column: 2/-1;
+
+    }
+
+    &__wave {
+        // background-color: $coloraccent-two;
+        background-color: #70F068;
+        grid-column: 1/2;
+    }
+
+    &__ebook,
+    &__wave {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: $colorgreydark-eight;
+
+            transition: all .1s;
+
+            svg {
+                height: 10rem;
+                width: auto;
+                color: $colorgreydark-eight;
+
+                @include respond(phone4) {
+                    //31.25 500px
+                    height: 8rem;
+                }
+
+            }
+
+            &:hover {
+                transform: scale(0.95);
+            }
+        }
+
+        span {
+            font-size: $fontsize-paragraph;
+        }
+    }
+
+    &__ebook {
+        a {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__track {
+        background-color: #EFDE7C;
+        grid-row: 2;
+        grid-column: 1/-1;
+
+        padding: $paddingsection;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.slider {
+    margin-bottom: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__seek {
+        width: 70%;
+        background: $colorgreydark-eight;
+        -webkit-appearance: none;
+        appearance: none;
+        height: .5rem;
+        cursor: pointer;
+        border-radius: $borderradius-thin;
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            // background: $colorprimary-bright;
+            background: #EFDE7C;
+            border: 3px solid $colorgreydark-eight;
+            cursor: pointer;
+            border-radius: 100%;
+        }
+
+    }
+
+    &__current {
+        margin-right: 1rem;
+    }
+
+    &__total {
+        margin-left: 1rem;
+    }
+}
+
+.volume {
+    margin-bottom: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__seek {
+        margin-right: 8px;
+        width: 30%;
+        background: $colorgreydark-eight;
+        -webkit-appearance: none;
+        appearance: none;
+        height: .5rem;
+        cursor: pointer;
+        border-radius: $borderradius-thin;
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            // background: $colorprimary-bright;
+            background: #EFDE7C;
+            border: 3px solid $colorgreydark-eight;
+            cursor: pointer;
+            border-radius: 100%;
+        }
+    }
+
+    svg {
+        height: 2rem;
+        width: auto;
+    }
+}
+
+.track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    &__random,
+    &__prev,
+    &__playpause,
+    &__next,
+    &__repeat {
+        margin-right: 2rem;
+
+        svg {
+            height: 3.5rem;
+            width: auto;
+            color: $colorgreydark-eight;
+            cursor: pointer;
+
+            @include respond(phone4) {
+                //31.25 500px
+                height: 3rem;
+            }
+
+            &:hover {
+                transform: scale(0.95)
+            }
+
+        }
+    }
+
+    &__playpause {
+        svg {
+            height: 7rem;
+
+            @include respond(phone4) {
+                //31.25 500px
+                height: 6.5rem;
+            }
+        }
+    }
+
+    &__repeat {
+        margin-right: 0rem;
+    }
+}

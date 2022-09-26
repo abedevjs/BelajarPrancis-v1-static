@@ -1,0 +1,109 @@
+.kontakWrapper {
+    padding: $paddingsection;
+
+    font-size: 8rem;
+    font-weight: 500;
+    line-height: .9;
+    letter-spacing: -3px;
+
+    display: flex;
+    justify-content: space-around;
+    // align-items: center;
+
+    @include respond(tab-port3) {
+        //56.25em 900px
+        padding: 2rem 3rem;
+        font-size: 7rem;
+    }
+
+    @include respond(phone4) {
+        //31.25 500px
+        font-size: 5rem;
+    }
+
+    &__text {
+        width: 50%;
+    }
+
+    form {
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        &>* {
+            margin-bottom: 1rem;
+        }
+
+        button {
+            text-decoration: none;
+            padding: 0.1rem 0.8rem;
+            border-radius: $borderradius-thin;
+            border: none;
+            font-size: $fontsize-button;
+            color: $colorgreylight-two;
+            background-color: $colorgreydark-eight;
+
+            transition: background-color 0.1s;
+            cursor: pointer;
+
+            &:hover {
+                // border: 2px solid $color-black;
+                // color: $color-white;
+                // background-color: $color-black;
+
+                transform: scale(0.95);
+            }
+        }
+    }
+}
+
+.formContainer {
+    width: 90%;
+    border: 2px solid $colorprimary-bright;
+    background-color: $colorprimary-bright;
+    border-radius: $borderradius-thin;
+    transform: all .1s;
+
+    display: flex;
+    flex-direction: column;
+
+    @include respond(phone4) {
+        //31.25 500px
+        // width: 100%;
+    }
+
+    &:hover {
+        border: 2px solid $colorprimary-dark;
+    }
+
+    label,
+    input {
+        background-color: $colorprimary-bright;
+        border-radius: $borderradius-thin;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        outline: none;
+        border: none;
+
+    }
+
+    label {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-size: 1.4rem;
+        letter-spacing: -1px;
+    }
+
+    input {
+        padding-bottom: 1rem;
+        font-size: $fontsize-paragraph;
+        // font-weight: 600;
+
+        @include respond(phone4) {
+            //31.25 500px
+            font-size: 1.5rem;
+        }
+    }
+}

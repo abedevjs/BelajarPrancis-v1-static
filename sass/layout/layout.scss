@@ -1,0 +1,45 @@
+.hero {
+    height: 100vh;
+    // position: absolute;
+    display: flex;
+
+    @include respond(tab-land2) {
+        //75em 1200px
+        height: 90vh;
+    }
+
+    @include respond(tab-port3) {
+        //56.25em 900px
+        height: 60vh;
+        flex-direction: column-reverse;
+        justify-content: center;
+        background-color: $colorprimary-bright;
+    }
+
+    @include respond(phone4) {
+        //31.25 500px
+        height: 55vh;
+    }
+}
+
+.media {
+    height: 100vh;
+
+    display: flex;
+
+    @include respond(tab-port3) {
+        //56.25em 900px
+        flex-direction: column;
+        height: 80vh;
+    }
+}
+
+.kontak {
+    height: 30rem;
+    background-color: $colorprimary-medium;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
