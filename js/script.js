@@ -9,7 +9,8 @@ const waveSVG = document.querySelector('.waveSVG');
 const waveStatus = document.querySelector('.waveStatus');
 const waveTitle = document.querySelector('.waveTitle');
 const waveEbook = document.querySelector('.waveEbook');
-const ebookLink = document.getElementById('ebookLink');
+const mediaRightLink = document.querySelector('.mediaRight__link');
+const ebookLink = document.querySelector('.ebookLink');
 
 const digit__current = document.querySelector('.slider__current');
 const slider__seek = document.querySelector('.slider__seek');
@@ -219,12 +220,15 @@ class Player {
         this.isPlaying = true;
 
         waveSVG.classList.add('rotate');
-        waveTitle.textContent = waveEbook.textContent = `${musicList[this.trackNumber].episode}`;
-        waveStatus.textContent = 'Playing...';
-        let ebook = `${musicList[this.trackNumber].ebook}`
-        ebookLink.href = ebook;
+
+        this.setTextContent(waveTitle, musicList[this.trackNumber].episode);
+        this.setTextContent(waveEbook, musicList[this.trackNumber].episode);
+        this.setTextContent(waveStatus, 'Playing...');
+
+        this.getEbook();
 
         btn__playpause.innerHTML = markupPause;
+
         episode.activateEpisode();
 
     };
@@ -234,7 +238,7 @@ class Player {
         this.isPlaying = false;
 
         waveSVG.classList.remove('rotate');
-        waveStatus.textContent = 'Paused';
+        this.setTextContent(waveStatus, 'Paused');
 
         btn__playpause.innerHTML = markupPlay;
     };
@@ -281,8 +285,8 @@ class Player {
     }
 
     reset() {
-        digit__current.textContent = '00:00';
-        digit__total.textContent = '00:00';
+        this.setTextContent(digit__current, '00:00');
+        this.setTextContent(digit__total, '00:00')
         slider__seek.value = 0;
     }
 
@@ -319,6 +323,16 @@ class Player {
     getTrackNumber() {
         return this.trackNumber + 1;
     }
+
+    getEbook() {
+        ebookLink.setAttribute('target', '_blank')
+        let ebook = `${musicList[this.trackNumber].ebook}`
+        ebookLink.href = ebook;
+    }
+
+    setTextContent(element, text) {
+        return element.textContent = text;
+    }
 };
 
 const mp3Player = new Player();
@@ -335,7 +349,7 @@ descBox.addEventListener('click', (e) => {
     e.preventDefault();
     let target = e.target.closest('.description__container');
     episode.playEpisode(target.dataset.episode - 1);
-})
+});
 
 btn__playpause.addEventListener('click', () => {
     mp3Player.playPause();
@@ -365,6 +379,10 @@ slider__seek.addEventListener('click', () => {
     mp3Player.seekTo();
 });
 
+mediaRightLink.addEventListener('click', (e) => {
+    e.preventDefault();
+});
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 //!GOOGLE SRIPT for sending Contact Form to my Spread Sheet
 
@@ -372,14 +390,6 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbw94sQoZCs0rZfLU-Tdmr
 const form = document.forms['prancis-wa-grup']
 const inputNama = document.querySelector('.inputNama');
 const inputTelpon = document.querySelector('.inputTelpon');
-const mediaRightLink = document.querySelector('.mediaRight__link');
-// const sectionMedia = document.getElementById('section-media');
-
-// sectionMedia.scrollIntoView({ behavior: "smooth" });
-
-mediaRightLink.addEventListener('click', (e) => {
-    e.preventDefault();
-});
 
 const hideAlert = () => {
     const el = document.querySelector('.alert');
@@ -400,6 +410,7 @@ const showAlert = (type, msg) => {//Alert klo usr salah kasi msuk pass
 form.addEventListener('submit', e => {
     e.preventDefault();
 
+    if (!isNaN(inputNama.value) || isNaN(inputTelpon.value)) return showAlert('error', 'Berikan data yang benar 😕')
 
     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
         .then(response => {
