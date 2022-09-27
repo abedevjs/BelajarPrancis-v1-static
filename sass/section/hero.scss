@@ -20,7 +20,7 @@
         justify-content: space-between;
 
         span {
-            font-size: 2rem;
+            font-size: 2.5rem;
 
             @include respond(tab-port3) {
                 //56.25em 900px
@@ -31,7 +31,7 @@
 
             @include respond(phone4) {
                 //31.25 500px
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
         }
 
@@ -56,7 +56,7 @@
                 }
 
                 svg {
-                    height: 3rem;
+                    height: 4rem;
                     width: auto;
                     color: $colorgreydark-eight;
 
@@ -68,7 +68,7 @@
 
                     @include respond(phone4) {
                         //31.25 500px
-                        height: 2rem;
+                        height: 3rem;
                     }
                 }
             }
