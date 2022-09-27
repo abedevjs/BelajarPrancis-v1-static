@@ -396,6 +396,7 @@ body {
     @media only screen and (max-width: 31.25em) {
       .description a img {
         width: 8rem;
+        height: 8rem;
         margin-right: 3rem; } }
   .description a div {
     display: flex;
