@@ -127,6 +127,7 @@ body {
 
 .hero {
   height: 100vh;
+  overflow: hidden;
   display: flex; }
   @media only screen and (max-width: 75em) {
     .hero {

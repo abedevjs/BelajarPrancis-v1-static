@@ -1,6 +1,6 @@
 .hero {
     height: 100vh;
-    // position: absolute;
+    overflow: hidden;
     display: flex;
 
     @include respond(tab-land2) {
