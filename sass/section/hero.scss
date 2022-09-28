@@ -10,8 +10,12 @@
     @include respond(tab-port3) {
         //56.25em 900px
         width: auto;
-        background-color: inherit;
         align-items: center;
+
+        background-color: inherit;
+        // background-image: url('./../../img/wave1.svg');
+        // background-position: center;
+        // background-size: cover;
     }
 
 
@@ -137,18 +141,6 @@
 
 }
 
-// .icon {
-//     display: flex;
-
-//     a {
-
-//         img {
-//             height: 4rem;
-//             width: auto;
-//         }
-//     }
-// }
-
 .heroRight {
     background-color: $coloraccent-one;
 
@@ -160,7 +152,11 @@
     @include respond(tab-port3) {
         //56.25em 900px
         width: auto;
-        background-color: inherit;
+        // background-color: inherit;
+        background-color: transparent;
+        background-image: url('./../../img/wave.svg');
+        background-position: center;
+        background-size: cover;
 
     }
 

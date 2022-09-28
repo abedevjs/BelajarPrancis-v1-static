@@ -167,13 +167,13 @@ body {
   @media only screen and (max-width: 56.25em) {
     .heroLeft {
       width: auto;
-      background-color: inherit;
-      align-items: center; } }
+      align-items: center;
+      background-color: inherit; } }
   .heroLeft__icon {
     display: flex;
     justify-content: space-between; }
     .heroLeft__icon span {
-      font-size: 2rem; }
+      font-size: 2.5rem; }
       @media only screen and (max-width: 56.25em) {
         .heroLeft__icon span {
           position: absolute;
@@ -181,7 +181,7 @@ body {
           left: 5%; } }
       @media only screen and (max-width: 31.25em) {
         .heroLeft__icon span {
-          font-size: 1.5rem; } }
+          font-size: 2rem; } }
     .heroLeft__icon img {
       width: 7rem; }
     @media only screen and (max-width: 56.25em) {
@@ -194,7 +194,7 @@ body {
       .heroLeft__icon div a:not(:last-child) {
         margin-right: .5rem; }
       .heroLeft__icon div a svg {
-        height: 3rem;
+        height: 4rem;
         width: auto;
         color: #343a40;
         transition: all .1s; }
@@ -202,7 +202,7 @@ body {
           transform: scale(0.95); }
         @media only screen and (max-width: 31.25em) {
           .heroLeft__icon div a svg {
-            height: 2rem; } }
+            height: 3rem; } }
   .heroLeft__title, .heroLeft__sub {
     width: 51rem; }
     @media only screen and (max-width: 56.25em) {
@@ -243,7 +243,10 @@ body {
   @media only screen and (max-width: 56.25em) {
     .heroRight {
       width: auto;
-      background-color: inherit; } }
+      background-color: transparent;
+      background-image: url("./../../img/wave.svg");
+      background-position: center;
+      background-size: cover; } }
   .heroRight picture {
     display: flex;
     justify-content: center; }
